@@ -1,25 +1,22 @@
 <service>
-  <id>DMSNodeApp</id>
-  <name>DMS Node.js App</name>
-  <description>Runs Node.js API as a Windows Service with daily log rotation</description>
-
+<id>DMSNodeApp</id>
+<name>DMS Node.js App</name>
+<description>Runs Node.js API as a Windows Service with daily log rotation</description>
+ 
   <!-- Run Node.js directly -->
-  <executable>C:\nvm4w\nodejs\node.exe</executable>
-  <arguments>D:\DMS_V1\F\backend-postgres\api.js</arguments>
-
-  <!-- Working directory -->
-  <workingdirectory>D:\DMS_V1\F\backend-postgres</workingdirectory>
-
+<executable>C:\Program Files\nodejs\node.exe</executable>
+<arguments>api.js</arguments>
+ 
+  <!-- Working directory must be the folder where api.js resides -->
+<workingdirectory>C:\Users\SSBD-202308-01\Desktop\github\DMS-UCO\app\backend-postgres</workingdirectory>
+ 
   <!-- Log configuration -->
-  <logpath>D:\DMS_V1\F\backend-postgres\node-logs</logpath>
-  <log mode="roll-by-time">
-    <pattern>yyyy-MM-dd</pattern>
-    <keepFiles>30</keepFiles>
-  </log>
-
+<logpath>C:\Window-Service-node\node-logs</logpath>
+<log mode="roll-by-time">
+<pattern>yyyy-MM-dd</pattern>
+<keepFiles>30</keepFiles>
+</log>
+ 
   <!-- Restart if process crashes -->
-  <onfailure action="restart" delay="5000"/>
-
-  <!-- Optional: environment -->
-  <env name="NODE_ENV" value="production"/>
+<onfailure action="restart" delay="5000"/>
 </service>
